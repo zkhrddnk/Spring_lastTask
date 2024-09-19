@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+</head>
+<body>
+<h1>Create User</h1>
+
+<form th:action="@{/users/save}" th:object="${user}" method="post">
+    <!-- Поле ID, только для отображения -->
+    <label>ID:</label>
+    <input type="text" th:field="*{id}" readonly="readonly" />
+    <br/>
+
+    <!-- Поле Name -->
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" />
+    <br/>
+
+    <!-- Поле Email -->
+    <label>Email:</label>
+    <input type="text" th:field="*{email}" />
+    <br/>
+
+    <!-- Кнопка сохранения -->
+    <button type="submit">Save</button>
+</form>
+
+<!-- Ссылка для возврата к списку пользователей -->
+<a href="/users/all">Back to List</a>
+</body>
+</html>
